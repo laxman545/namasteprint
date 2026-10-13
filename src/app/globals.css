@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --paper-bg: #FAF8F5;
+    --paper-card: #FFFFFF;
+    --paper-surface: #F5F1EB;
+    --paper-border: #E8E2D8;
+    --ink-obsidian: #0A0E17;
+    --ink-dark: #161D2A;
+    --ink-muted: #576175;
+    --gold-primary: #D97706;
+    --gold-glow: #F59E0B;
+    --cmyk-cyan: #0284C7;
+    --cmyk-magenta: #DB2777;
+    --cmyk-yellow: #EAB308;
+    --cmyk-black: #0F172A;
+  }
+}
+
+/* Tactile paper texture background */
+.paper-texture {
+  background-color: #FAF8F5;
+  background-image: radial-gradient(rgba(180, 160, 130, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(180, 160, 130, 0.05) 1px, #FAF8F5 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+.dark-press-texture {
+  background-color: #0B0E14;
+  background-image: radial-gradient(rgba(217, 119, 6, 0.06) 1px, transparent 1px),
+                    radial-gradient(rgba(255, 255, 255, 0.03) 1px, #0B0E14 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Foil Shimmer Effect */
+@keyframes foil-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.foil-gold-text {
+  background: linear-gradient(
+    110deg,
+    #B45309 0%,
+    #FDE68A 25%,
+    #D97706 45%,
+    #FFFBEB 55%,
+    #B45309 75%,
+    #F59E0B 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: foil-shine 6s ease-in-out infinite;
+}
+
+.foil-silver-text {
+  background: linear-gradient(
+    110deg,
+    #475569 0%,
+    #F8FAFC 30%,
+    #94A3B8 50%,
+    #FFFFFF 70%,
+    #475569 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: foil-shine 7s ease-in-out infinite;
+}
+
+.foil-holographic-text {
+  background: linear-gradient(
+    110deg,
+    #EC4899 0%,
+    #8B5CF6 25%,
+    #06B6D4 50%,
+    #10B981 75%,
+    #F59E0B 100%
+  );
+  background-size: 250% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: foil-shine 5s linear infinite;
+}
+
+/* Embossed & Debossed tactile effects */
+.tactile-deboss {
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.12),
+              inset -1px -1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.tactile-emboss {
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.08),
+              -2px -2px 5px rgba(255, 255, 255, 0.95);
+}
+
+.paper-sheet-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 10px 25px -3px rgba(45, 35, 20, 0.08),
+              0 25px 45px -5px rgba(15, 23, 42, 0.04);
+}
+
+.paper-sheet-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paper-sheet-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.06),
+              0 18px 36px -4px rgba(45, 35, 20, 0.12),
+              0 30px 60px -8px rgba(15, 23, 42, 0.08);
+}
+
+/* Spot UV simulation */
+.spot-uv-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.spot-uv-sheen::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spot-uv-sheen:hover::after {
+  opacity: 1;
+}
+
+/* Print Registration Mark styling */
+.registration-mark {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.registration-mark::before,
+.registration-mark::after {
+  content: "";
+  position: absolute;
+  background-color: currentColor;
+}
+.registration-mark::before {
+  top: 8px;
+  left: 0;
+  width: 18px;
+  height: 2px;
+}
+.registration-mark::after {
+  top: 0;
+  left: 8px;
+  width: 2px;
+  height: 18px;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D6CEC3;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B4A999;
+}
